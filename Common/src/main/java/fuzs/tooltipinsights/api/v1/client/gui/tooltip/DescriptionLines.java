@@ -22,7 +22,7 @@ public abstract class DescriptionLines<T> extends TooltipLinesExtractor<T, Abstr
 
     @Override
     protected final Stream<Component> getTooltipLines(T t) {
-        String descriptionKey = this.getDescriptionTranslationKey(this.getDescriptionId(t));
+        String descriptionKey = getDescriptionTranslationKey(this.getDescriptionId(t));
         if (descriptionKey != null) {
             return ClientComponentSplitter.splitTooltipLines(Component.translatable(descriptionKey))
                     .map(ComponentHelper::getAsComponent);
@@ -31,7 +31,7 @@ public abstract class DescriptionLines<T> extends TooltipLinesExtractor<T, Abstr
         }
     }
 
-    protected @Nullable String getDescriptionTranslationKey(String translationKey) {
+    public static @Nullable String getDescriptionTranslationKey(String translationKey) {
         if (Language.getInstance().has(translationKey + ".desc")) {
             // our own format, similar to Enchantment Descriptions mod format
             return translationKey + ".desc";

@@ -16,9 +16,11 @@ import fuzs.tooltipinsights.impl.TooltipInsights;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.alchemy.PotionContents;
@@ -38,6 +40,7 @@ public class TooltipInsightsClient implements ClientModConstructor {
 
     private static void setupDevelopmentEnvironment() {
         if (!ModLoaderEnvironment.INSTANCE.isDevelopmentEnvironment(TooltipInsights.MOD_ID)) return;
+        TooltipDescriptionsHandler.printMissingDescriptionWarnings(Registries.MOB_EFFECT, MobEffect::getDescriptionId);
         ItemTooltipCallback.EVENT.register(EventPhase.LAST, new TooltipDescriptionsHandler<MobEffectInstance>() {
             static final TooltipLinesExtractor<MobEffectInstance, AbstractClientConfig.TooltipComponents> DESCRIPTION = new DescriptionLines<>() {
                 @Override

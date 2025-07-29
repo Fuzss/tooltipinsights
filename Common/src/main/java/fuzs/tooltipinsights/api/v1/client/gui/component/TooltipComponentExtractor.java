@@ -8,7 +8,7 @@ import java.util.stream.Stream;
 public abstract class TooltipComponentExtractor<T, C> {
     private final DataComponentType<C> dataComponentType;
 
-    TooltipComponentExtractor(DataComponentType<C> dataComponentType) {
+    public TooltipComponentExtractor(DataComponentType<C> dataComponentType) {
         this.dataComponentType = dataComponentType;
     }
 
