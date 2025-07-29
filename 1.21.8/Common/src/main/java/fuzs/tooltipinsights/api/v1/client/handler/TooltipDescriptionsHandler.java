@@ -1,8 +1,19 @@
 package fuzs.tooltipinsights.api.v1.client.handler;
 
+import fuzs.puzzleslib.api.client.event.v1.AddResourcePackReloadListenersCallback;
+import fuzs.puzzleslib.api.init.v3.registry.LookupHelper;
+import fuzs.tooltipinsights.api.v1.client.gui.tooltip.DescriptionLines;
 import fuzs.tooltipinsights.api.v1.config.ItemDescriptionMode;
+import fuzs.tooltipinsights.impl.TooltipInsights;
+import net.minecraft.core.Holder;
+import net.minecraft.core.Registry;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.contents.TranslatableContents;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.packs.resources.PreparableReloadListener;
+import net.minecraft.server.packs.resources.ResourceManager;
+import net.minecraft.server.packs.resources.ResourceManagerReloadListener;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -13,7 +24,9 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.function.BiConsumer;
 import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public abstract class TooltipDescriptionsHandler<T> {
@@ -98,5 +111,22 @@ public abstract class TooltipDescriptionsHandler<T> {
                 consumer.accept(contents);
             }
         }).map(TranslatableContents::getKey).collect(Collectors.toSet());
+    }
+
+    public static <T> void printMissingDescriptionWarnings(ResourceKey<? extends Registry<? super T>> registryKey, Function<T, String> descriptionIdGetter) {
+        Registry<T> registry = LookupHelper.getRegistry(registryKey).orElseThrow();
+        AddResourcePackReloadListenersCallback.EVENT.register((BiConsumer<ResourceLocation, PreparableReloadListener> consumer) -> {
+            ResourceLocation resourceLocation = TooltipInsights.id(registryKey.location().toString().replace(':', '/'));
+            consumer.accept(resourceLocation, (ResourceManagerReloadListener) (ResourceManager resourceManager) -> {
+                registry.listElements().forEach((Holder.Reference<T> holder) -> {
+                    String translationKey = descriptionIdGetter.apply(holder.value());
+                    if (DescriptionLines.getDescriptionTranslationKey(translationKey) == null) {
+                        TooltipInsights.LOGGER.warn("Missing description for {}: {}",
+                                holder.key(),
+                                translationKey + ".desc");
+                    }
+                });
+            });
+        });
     }
 }
