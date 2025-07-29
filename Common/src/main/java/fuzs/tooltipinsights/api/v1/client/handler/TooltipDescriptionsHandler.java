@@ -113,13 +113,13 @@ public abstract class TooltipDescriptionsHandler<T> {
         }).map(TranslatableContents::getKey).collect(Collectors.toSet());
     }
 
-    public static <T> void printMissingDescriptionWarnings(ResourceKey<? extends Registry<? super T>> registryKey, Function<T, String> descriptionIdGetter) {
+    public static <T> void printMissingDescriptionWarnings(ResourceKey<? extends Registry<? super T>> registryKey, Function<Holder.Reference<T>, String> descriptionIdGetter) {
         Registry<T> registry = LookupHelper.getRegistry(registryKey).orElseThrow();
         AddResourcePackReloadListenersCallback.EVENT.register((BiConsumer<ResourceLocation, PreparableReloadListener> consumer) -> {
             ResourceLocation resourceLocation = TooltipInsights.id(registryKey.location().toString().replace(':', '/'));
             consumer.accept(resourceLocation, (ResourceManagerReloadListener) (ResourceManager resourceManager) -> {
                 registry.listElements().forEach((Holder.Reference<T> holder) -> {
-                    String translationKey = descriptionIdGetter.apply(holder.value());
+                    String translationKey = descriptionIdGetter.apply(holder);
                     if (DescriptionLines.getDescriptionTranslationKey(translationKey) == null) {
                         TooltipInsights.LOGGER.warn("Missing description for {}: {}",
                                 holder.key(),
