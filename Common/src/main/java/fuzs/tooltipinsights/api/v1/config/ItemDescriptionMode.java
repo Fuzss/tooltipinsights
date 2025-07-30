@@ -32,7 +32,7 @@ public enum ItemDescriptionMode {
         private int getLineIndex(ItemStack itemStack, List<Component> tooltipLines, TooltipFlag tooltipFlag) {
             int lineIndex = -1;
 
-            if (tooltipFlag.isAdvanced()) {
+            if (!itemStack.isEmpty() && tooltipFlag.isAdvanced()) {
                 // add this just before the 'dev-only' tooltip lines
                 Component component = Component.literal(BuiltInRegistries.ITEM.getKey(itemStack.getItem()).toString())
                         .withStyle(ChatFormatting.DARK_GRAY);
