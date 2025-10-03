@@ -1,9 +1,9 @@
 package fuzs.tooltipinsights.api.v1.config;
 
+import fuzs.puzzleslib.api.util.v1.CommonHelper;
 import fuzs.tooltipinsights.impl.TooltipInsights;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
@@ -21,7 +21,7 @@ public enum ItemDescriptionMode {
     SHIFT {
         @Override
         public boolean isActive() {
-            return Screen.hasShiftDown();
+            return CommonHelper.hasShiftDown();
         }
 
         @Override
