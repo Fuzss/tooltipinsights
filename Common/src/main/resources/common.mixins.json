@@ -6,6 +6,7 @@
   "mixins": [
   ],
   "client": [
+    "client.FontManager\u0024CachedFontProviderMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -1,7 +1,9 @@
 package fuzs.tooltipinsights.api.v1.client.gui.tooltip;
 
 import fuzs.tooltipinsights.api.v1.config.AbstractClientConfig;
-import net.minecraft.ChatFormatting;
+import fuzs.tooltipinsights.impl.network.chat.contents.objects.SpacedSprite;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.Font;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import org.apache.commons.lang3.mutable.MutableBoolean;
@@ -18,10 +20,8 @@ public abstract class TooltipLinesExtractor<T, C extends AbstractClientConfig.To
     }
 
     public static <T, C extends AbstractClientConfig.TooltipComponents> List<Component> getTooltipLines(List<TooltipLinesExtractor<T, C>> extractorList, Component decorationComponent, Style style, T t, C tooltipComponents) {
-        // copy text only, without any style; also setting colour to black will make it barely visible on a tooltip background which we want
-        // alternatively create an empty component consisting of spaces with the same width,
-        // but that usually does not perfectly match up, so stick with the dying approach for now
-        Component indentComponent = Component.literal(decorationComponent.getString()).withStyle(ChatFormatting.BLACK);
+        Font font = Minecraft.getInstance().font;
+        Component indentComponent = Component.object(new SpacedSprite(font.width(decorationComponent)));
         MutableBoolean mutableBoolean = new MutableBoolean(true);
         List<Component> tooltipLines = new ArrayList<>();
 
@@ -53,7 +53,7 @@ public abstract class TooltipLinesExtractor<T, C extends AbstractClientConfig.To
 
     protected abstract Stream<Component> getTooltipLines(T t);
 
-    private Stream<Component> getTooltipLines(C tooltipComponents, T t) {
+    public final Stream<Component> getTooltipLines(C tooltipComponents, T t) {
         if (this.isEnabled(tooltipComponents)) {
             return this.getTooltipLines(t);
         } else {
