@@ -14,7 +14,7 @@ import fuzs.tooltipinsights.api.v1.config.AbstractClientConfig;
 import fuzs.tooltipinsights.api.v1.config.ItemDescriptionMode;
 import fuzs.tooltipinsights.impl.TooltipInsights;
 import net.minecraft.ChatFormatting;
-import net.minecraft.Util;
+import net.minecraft.util.Util;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
