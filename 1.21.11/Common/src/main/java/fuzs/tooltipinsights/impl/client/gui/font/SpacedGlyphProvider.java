@@ -8,7 +8,7 @@ import net.minecraft.client.gui.font.SingleSpriteSource;
 import net.minecraft.client.gui.font.TextRenderable;
 import net.minecraft.client.gui.font.glyphs.BakedGlyph;
 import net.minecraft.network.chat.Style;
-import org.jetbrains.annotations.Nullable;
+import org.jspecify.annotations.Nullable;
 
 public final class SpacedGlyphProvider {
     private static final Int2ObjectMap<GlyphSource> GLYPH_SOURCE_CACHE = new Int2ObjectArrayMap<>();
@@ -37,7 +37,7 @@ public final class SpacedGlyphProvider {
         }
 
         @Override
-        public @Nullable TextRenderable createGlyph(float x, float y, int color, int shadowColor, Style style, float boldOffset, float shadowOffset) {
+        public TextRenderable.@Nullable Styled createGlyph(float x, float y, int color, int shadowColor, Style style, float boldOffset, float shadowOffset) {
             return null;
         }
     }

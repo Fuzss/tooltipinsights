@@ -21,7 +21,7 @@ public abstract class InternalNameLines<T> extends TooltipLinesExtractor<T, Abst
     @Override
     protected Stream<Component> getTooltipLines(T t) {
         ResourceKey<?> resourceKey = this.getResourceKey(t);
-        return Stream.of(Component.literal(resourceKey.location().toString()).withStyle(ChatFormatting.DARK_GRAY));
+        return Stream.of(Component.literal(resourceKey.identifier().toString()).withStyle(ChatFormatting.DARK_GRAY));
     }
 
     protected abstract ResourceKey<?> getResourceKey(T t);

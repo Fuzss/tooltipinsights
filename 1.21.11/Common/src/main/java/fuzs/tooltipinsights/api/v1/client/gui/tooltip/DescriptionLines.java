@@ -5,7 +5,7 @@ import fuzs.puzzleslib.api.util.v1.ComponentHelper;
 import fuzs.tooltipinsights.api.v1.config.AbstractClientConfig;
 import net.minecraft.locale.Language;
 import net.minecraft.network.chat.Component;
-import org.jetbrains.annotations.Nullable;
+import org.jspecify.annotations.Nullable;
 
 import java.util.stream.Stream;
 
