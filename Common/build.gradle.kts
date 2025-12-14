@@ -8,6 +8,6 @@ dependencies {
 
 multiloader {
     mixins {
-        clientMixin("FontManager$CachedFontProviderMixin")
+        clientMixin("FontManager\$CachedFontProviderMixin")
     }
 }
