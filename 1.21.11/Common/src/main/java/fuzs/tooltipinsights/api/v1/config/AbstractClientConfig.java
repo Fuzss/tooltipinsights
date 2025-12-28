@@ -29,8 +29,11 @@ public abstract class AbstractClientConfig implements ConfigCore {
         }
     }
 
+    /**
+     * TODO rename field to advancedTooltips and merge class into StyledTooltips
+     */
     public static abstract class ItemTooltips extends StyledTooltips {
-        @Config(description = "Add descriptions to item tooltips.")
+        @Config(description = "Add descriptions and other useful information to tooltips.")
         public ItemDescriptionMode itemDescriptions = ItemDescriptionMode.ALWAYS;
     }
 
