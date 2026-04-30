@@ -2,15 +2,15 @@
 
 ### Minecraft 26.x
 
-| Branch | Status | Changelog |
-| --- | --- | --- |
-| [26.1.x](https://github.com/Fuzss/tooltip-insights/tree/26.1.x) | ✅&nbsp;Primary | [CHANGELOG.md](https://github.com/Fuzss/tooltip-insights/blob/26.1.x/CHANGELOG.md) |
+| Branch | Status | Changelog | Maven |
+| --- | --- | --- | --- |
+| [26.1.x](https://github.com/Fuzss/tooltip-insights/tree/26.1.x) | ✅&nbsp;Primary | [CHANGELOG.md](https://github.com/Fuzss/tooltip-insights/blob/26.1.x/CHANGELOG.md) | [`fuzs.tooltipinsights:tooltipinsights-common:21.11.0`](https://github.com/Fuzss/modresources/tree/main/maven/fuzs/tooltipinsights/tooltipinsights-common/21.11.0)<br />[`fuzs.tooltipinsights:tooltipinsights-fabric:21.11.0`](https://github.com/Fuzss/modresources/tree/main/maven/fuzs/tooltipinsights/tooltipinsights-fabric/21.11.0)<br />[`fuzs.tooltipinsights:tooltipinsights-neoforge:21.11.0`](https://github.com/Fuzss/modresources/tree/main/maven/fuzs/tooltipinsights/tooltipinsights-neoforge/21.11.0) |
 
 ### Minecraft 1.21.x
 
-| Branch | Status | Changelog |
-| --- | --- | --- |
-| [1.21.11](https://github.com/Fuzss/tooltip-insights/tree/1.21.11) | ❌&nbsp;Archived | [CHANGELOG.md](https://github.com/Fuzss/tooltip-insights/blob/1.21.11/CHANGELOG.md) |
+| Branch | Status | Changelog | Maven |
+| --- | --- | --- | --- |
+| [1.21.11](https://github.com/Fuzss/tooltip-insights/tree/1.21.11) | ❌&nbsp;Archived | [CHANGELOG.md](https://github.com/Fuzss/tooltip-insights/blob/1.21.11/CHANGELOG.md) | [`fuzs.tooltipinsights:tooltipinsights-common:21.11.0`](https://github.com/Fuzss/modresources/tree/main/maven/fuzs/tooltipinsights/tooltipinsights-common/21.11.0)<br />[`fuzs.tooltipinsights:tooltipinsights-fabric:21.11.0`](https://github.com/Fuzss/modresources/tree/main/maven/fuzs/tooltipinsights/tooltipinsights-fabric/21.11.0)<br />[`fuzs.tooltipinsights:tooltipinsights-neoforge:21.11.0`](https://github.com/Fuzss/modresources/tree/main/maven/fuzs/tooltipinsights/tooltipinsights-neoforge/21.11.0) |
 
 | Branch | Status | Changelog | Downloads |
 | --- | --- | --- | --- |
