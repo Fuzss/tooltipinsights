@@ -1,9 +1,10 @@
 {
+    "minecraft": "26.1.2",
     "mod": {
         "id": "tooltipinsights",
         "group": "fuzs.tooltipinsights",
         "name": "Tooltip Insights",
-        "version": "21.11.0",
+        "version": "26.1.0",
         "authors": [
             "Fuzs"
         ],
@@ -37,7 +38,7 @@
     "links": [
         {
             "name": "github",
-            "slug": "tooltipinsights"
+            "slug": "tooltip-insights"
         }
     ],
     "environments": {

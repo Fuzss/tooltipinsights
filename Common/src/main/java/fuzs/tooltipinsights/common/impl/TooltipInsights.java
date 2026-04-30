@@ -1,0 +1,23 @@
+package fuzs.tooltipinsights.common.impl;
+
+import fuzs.puzzleslib.common.api.core.v1.ModConstructor;
+import net.minecraft.resources.Identifier;
+import fuzs.tooltipinsights.common.impl.network.chat.contents.objects.SpacedSprite;
+import net.minecraft.network.chat.contents.objects.ObjectInfos;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+public class TooltipInsights implements ModConstructor {
+    public static final String MOD_ID = "tooltipinsights";
+    public static final String MOD_NAME = "Tooltip Insights";
+    public static final Logger LOGGER = LoggerFactory.getLogger(MOD_NAME);
+
+    @Override
+    public void onCommonSetup() {
+        ObjectInfos.ID_MAPPER.put(id("spaced").toString(), SpacedSprite.MAP_CODEC);
+    }
+
+    public static Identifier id(String path) {
+        return Identifier.fromNamespaceAndPath(MOD_ID, path);
+    }
+}
