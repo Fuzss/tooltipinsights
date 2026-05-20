@@ -4,7 +4,7 @@
 
 | Branch | Status | Changelog | Maven |
 | --- | --- | --- | --- |
-| [26.1.x](https://github.com/Fuzss/tooltip-insights/tree/26.1.x) | ✅&nbsp;Primary | [CHANGELOG.md](https://github.com/Fuzss/tooltip-insights/blob/26.1.x/CHANGELOG.md) | [`fuzs.tooltipinsights:tooltipinsights-common:21.11.0`](https://github.com/Fuzss/modresources/tree/main/maven/fuzs/tooltipinsights/tooltipinsights-common/21.11.0)<br />[`fuzs.tooltipinsights:tooltipinsights-fabric:21.11.0`](https://github.com/Fuzss/modresources/tree/main/maven/fuzs/tooltipinsights/tooltipinsights-fabric/21.11.0)<br />[`fuzs.tooltipinsights:tooltipinsights-neoforge:21.11.0`](https://github.com/Fuzss/modresources/tree/main/maven/fuzs/tooltipinsights/tooltipinsights-neoforge/21.11.0) |
+| [26.1.x](https://github.com/Fuzss/tooltip-insights/tree/26.1.x) | ✅&nbsp;Primary | [CHANGELOG.md](https://github.com/Fuzss/tooltip-insights/blob/26.1.x/CHANGELOG.md) | [`fuzs.tooltipinsights:tooltipinsights-common:26.1.0`](https://github.com/Fuzss/modresources/tree/main/maven/fuzs/tooltipinsights/tooltipinsights-common/26.1.0)<br />[`fuzs.tooltipinsights:tooltipinsights-fabric:26.1.0`](https://github.com/Fuzss/modresources/tree/main/maven/fuzs/tooltipinsights/tooltipinsights-fabric/26.1.0)<br />[`fuzs.tooltipinsights:tooltipinsights-neoforge:26.1.0`](https://github.com/Fuzss/modresources/tree/main/maven/fuzs/tooltipinsights/tooltipinsights-neoforge/26.1.0) |
 
 ### Minecraft 1.21.x
 
@@ -16,6 +16,10 @@
 | --- | --- | --- | --- |
 | [1.21.10](https://github.com/Fuzss/tooltip-insights/tree/1.21.10) | ❌&nbsp;Archived | [CHANGELOG.md](https://github.com/Fuzss/tooltip-insights/blob/1.21.10/CHANGELOG.md) | <img src="https://cdn.simpleicons.org/curseforge" width="14" />&nbsp;[CurseForge](https://www.curseforge.com/members/fuzs_/projects)<br /><img src="https://cdn.simpleicons.org/modrinth" width="14" />&nbsp;[Modrinth](https://modrinth.com/user/Fuzs) |
 | [1.21.8](https://github.com/Fuzss/tooltip-insights/tree/1.21.8) | ❌&nbsp;Archived | [CHANGELOG.md](https://github.com/Fuzss/tooltip-insights/blob/1.21.8/CHANGELOG.md) | <img src="https://cdn.simpleicons.org/curseforge" width="14" />&nbsp;[CurseForge](https://www.curseforge.com/members/fuzs_/projects)<br /><img src="https://cdn.simpleicons.org/modrinth" width="14" />&nbsp;[Modrinth](https://modrinth.com/user/Fuzs) |
+
+| Branch | Status | Changelog | Maven |
+| --- | --- | --- | --- |
+| [1.21.1](https://github.com/Fuzss/tooltip-insights/tree/1.21.1) | ✅&nbsp;Maintained | [CHANGELOG.md](https://github.com/Fuzss/tooltip-insights/blob/1.21.1/CHANGELOG.md) | [`fuzs.tooltipinsights:tooltipinsights-common:21.1.0`](https://github.com/Fuzss/modresources/tree/main/maven/fuzs/tooltipinsights/tooltipinsights-common/21.1.0)<br />[`fuzs.tooltipinsights:tooltipinsights-fabric:21.1.0`](https://github.com/Fuzss/modresources/tree/main/maven/fuzs/tooltipinsights/tooltipinsights-fabric/21.1.0)<br />[`fuzs.tooltipinsights:tooltipinsights-neoforge:21.1.0`](https://github.com/Fuzss/modresources/tree/main/maven/fuzs/tooltipinsights/tooltipinsights-neoforge/21.1.0) |
 
 ---
 
