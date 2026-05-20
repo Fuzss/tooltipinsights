@@ -1,9 +1,6 @@
 package fuzs.tooltipinsights.api.v1.client.gui.tooltip;
 
 import fuzs.tooltipinsights.api.v1.config.AbstractClientConfig;
-import fuzs.tooltipinsights.impl.network.chat.contents.objects.SpacedSprite;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.Font;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import org.apache.commons.lang3.mutable.MutableBoolean;
@@ -19,9 +16,13 @@ public abstract class TooltipLinesExtractor<T, C extends AbstractClientConfig.To
         this.supportsDecorations = supportsDecorations;
     }
 
+    /**
+     * @see net.minecraft.client.gui.screens.inventory.tooltip.TooltipRenderUtil#BACKGROUND_COLOR
+     */
     public static <T, C extends AbstractClientConfig.TooltipComponents> List<Component> getTooltipLines(List<TooltipLinesExtractor<T, C>> extractorList, Component decorationComponent, Style style, T t, C tooltipComponents) {
-        Font font = Minecraft.getInstance().font;
-        Component indentComponent = Component.object(new SpacedSprite(font.width(decorationComponent)));
+        // This works much better in 1.21.9+ with the custom object info component which can represent an arbitrary width,
+        // but here this seems like a good enough workaround.
+        Component indentComponent = decorationComponent.copy().withColor(0xF0100010);
         MutableBoolean mutableBoolean = new MutableBoolean(true);
         List<Component> tooltipLines = new ArrayList<>();
 
