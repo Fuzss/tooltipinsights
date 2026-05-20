@@ -2,11 +2,13 @@ package fuzs.tooltipinsights.api.v1.client.gui.tooltip;
 
 import fuzs.tooltipinsights.api.v1.config.AbstractClientConfig;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.Style;
 import org.apache.commons.lang3.mutable.MutableBoolean;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.UnaryOperator;
 import java.util.stream.Stream;
 
 public abstract class TooltipLinesExtractor<T, C extends AbstractClientConfig.TooltipComponents> {
@@ -22,7 +24,9 @@ public abstract class TooltipLinesExtractor<T, C extends AbstractClientConfig.To
     public static <T, C extends AbstractClientConfig.TooltipComponents> List<Component> getTooltipLines(List<TooltipLinesExtractor<T, C>> extractorList, Component decorationComponent, Style style, T t, C tooltipComponents) {
         // This works much better in 1.21.9+ with the custom object info component which can represent an arbitrary width,
         // but here this seems like a good enough workaround.
-        Component indentComponent = decorationComponent.copy().withColor(0xF0100010);
+        Component indentComponent = modifyAllStyles(decorationComponent, (Style styleX) -> {
+            return styleX.withColor(0xF0100010);
+        });
         MutableBoolean mutableBoolean = new MutableBoolean(true);
         List<Component> tooltipLines = new ArrayList<>();
 
@@ -48,6 +52,15 @@ public abstract class TooltipLinesExtractor<T, C extends AbstractClientConfig.To
         }
 
         return tooltipLines;
+    }
+
+    private static Component modifyAllStyles(Component component, UnaryOperator<Style> modifier) {
+        MutableComponent mutable = component.copy();
+        mutable.withStyle(modifier);
+        mutable.getSiblings().replaceAll((Component sibling) -> {
+            return modifyAllStyles(sibling, modifier);
+        });
+        return mutable;
     }
 
     protected abstract boolean isEnabled(C tooltipComponents);
